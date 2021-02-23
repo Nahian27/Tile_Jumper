@@ -3,20 +3,29 @@ using UnityEngine;
 public class CubeBehavior : MonoBehaviour
 {
     public Rigidbody rb;
-    public float JumpForce;
+    public bool Froce60fps;
+    public float JumpForce, HorizontalSpeed;
 
-    // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 60;
+        if (Froce60fps == true)
+        {
+            Application.targetFrameRate = 60;
+        }
     }
-
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetButtonDown("Jump"))
         {
             jump();
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            Hmovement(-HorizontalSpeed);
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            Hmovement(HorizontalSpeed);
         }
     }
 
@@ -27,6 +36,11 @@ public class CubeBehavior : MonoBehaviour
 
     void jump()
     {
-        rb.AddForce(0f, JumpForce * Time.fixedDeltaTime, 0f);
+        rb.AddForce(0f, JumpForce * Time.fixedDeltaTime, 0f, ForceMode.Impulse);
+    }
+
+    void Hmovement(float speed)
+    {
+        rb.AddForce(speed * Time.fixedDeltaTime, 0f, 0f, ForceMode.Impulse);
     }
 }
