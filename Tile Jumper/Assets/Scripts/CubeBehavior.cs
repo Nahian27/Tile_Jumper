@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CubeBehavior : MonoBehaviour
 {
@@ -28,19 +29,18 @@ public class CubeBehavior : MonoBehaviour
             Hmovement(HorizontalSpeed);
         }
     }
-
-    void OnMouseDown()
+    void OnTriggerExit()
     {
-        jump();
+        SceneManager.LoadScene(0);
     }
 
-    void jump()
+    public void jump()
     {
         rb.AddForce(0f, JumpForce * Time.fixedDeltaTime, 0f, ForceMode.Impulse);
     }
 
-    void Hmovement(float speed)
+    public void Hmovement(float speed)
     {
-        rb.AddForce(speed * Time.fixedDeltaTime, 0f, 0f, ForceMode.Impulse);
+        rb.AddForce(speed * Time.fixedDeltaTime, 0f, 0f, ForceMode.VelocityChange);
     }
 }
