@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class CubeBehavior : MonoBehaviour
 {
+    public Joystick joystick;
     public Rigidbody rb;
     public bool Froce60fps;
     public float JumpForce, HorizontalSpeed;
@@ -14,17 +15,17 @@ public class CubeBehavior : MonoBehaviour
             Application.targetFrameRate = 60;
         }
     }
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetButtonDown("Jump"))
         {
             jump();
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || joystick.Horizontal <= -0.5f)
         {
             Hmovement(-HorizontalSpeed);
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || joystick.Horizontal >= 0.5f)
         {
             Hmovement(HorizontalSpeed);
         }
@@ -41,6 +42,6 @@ public class CubeBehavior : MonoBehaviour
 
     public void Hmovement(float speed)
     {
-        rb.AddForce(speed * Time.fixedDeltaTime, 0f, 0f, ForceMode.VelocityChange);
+        rb.AddForce(speed * Time.fixedDeltaTime, 0f, 0f, ForceMode.Impulse);
     }
 }
