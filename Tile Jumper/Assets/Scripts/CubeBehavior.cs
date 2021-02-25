@@ -4,44 +4,51 @@ using UnityEngine.SceneManagement;
 public class CubeBehavior : MonoBehaviour
 {
     public Joystick joystick;
-    public Rigidbody rb;
     public bool Froce60fps;
     public float JumpForce, HorizontalSpeed;
+    private Rigidbody rb;
 
     void Start()
     {
+        rb = this.GetComponent<Rigidbody>();
+
         if (Froce60fps == true)
         {
             Application.targetFrameRate = 60;
         }
     }
-    void FixedUpdate()
+
+    void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             jump();
         }
-        if (Input.GetKey(KeyCode.LeftArrow) || joystick.Horizontal <= -0.5f)
+    }
+    void FixedUpdate()
+    {
+        if (joystick.Horizontal <= -0.2 || Input.GetKey(KeyCode.LeftArrow))
         {
             Hmovement(-HorizontalSpeed);
         }
-        if (Input.GetKey(KeyCode.RightArrow) || joystick.Horizontal >= 0.5f)
+        else if (joystick.Horizontal >= 0.2 || Input.GetKey(KeyCode.RightArrow))
         {
             Hmovement(HorizontalSpeed);
         }
     }
-    void OnTriggerExit()
-    {
-        SceneManager.LoadScene(0);
-    }
 
     public void jump()
     {
-        rb.AddForce(0f, JumpForce * Time.fixedDeltaTime, 0f, ForceMode.Impulse);
+        rb.AddForce(0f, JumpForce, 0f, ForceMode.Impulse);
     }
 
-    public void Hmovement(float speed)
+    public void Hmovement(float x)
     {
-        rb.AddForce(speed * Time.fixedDeltaTime, 0f, 0f, ForceMode.Impulse);
+        rb.velocity = new Vector3(x, rb.velocity.y, 0f);
+    }
+
+    void OnTriggerExit()
+    {
+        SceneManager.LoadScene(0);
     }
 }
