@@ -7,10 +7,11 @@ public class CubeBehavior : MonoBehaviour
     public bool Froce60fps;
     public float JumpForce, HorizontalSpeed;
     private Rigidbody rb;
+    private bool isGrounded = true;
 
     void Start()
     {
-        rb = this.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
 
         if (Froce60fps == true)
         {
@@ -36,13 +37,23 @@ public class CubeBehavior : MonoBehaviour
             Hmovement(HorizontalSpeed);
         }
     }
-
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "Ground")
+        {
+            isGrounded = true;
+        }
+    }
     public void jump()
     {
-        rb.AddForce(0f, JumpForce, 0f, ForceMode.Impulse);
+        if (isGrounded == true)
+        {
+            rb.AddForce(0f, JumpForce, 0f, ForceMode.Impulse);
+            isGrounded = false;
+        }
     }
 
-    public void Hmovement(float x)
+    void Hmovement(float x)
     {
         rb.velocity = new Vector3(x, rb.velocity.y, 0f);
     }
