@@ -4,14 +4,15 @@ using UnityEngine.SceneManagement;
 public class CubeBehavior : MonoBehaviour
 {
     public Joystick joystick;
+    public GameObject[] DeathParticle;
     public bool Froce60fps;
     public float JumpForce, HorizontalSpeed;
-    private Rigidbody rb;
+    private Rigidbody CubeRigidbody;
     private bool isGrounded = true;
 
-    void Start()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        CubeRigidbody = GetComponent<Rigidbody>();
 
         if (Froce60fps == true)
         {
@@ -19,14 +20,15 @@ public class CubeBehavior : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jump();
         }
     }
-    void FixedUpdate()
+
+    private void FixedUpdate()
     {
         if (joystick.Horizontal <= -0.2 || Input.GetKey(KeyCode.LeftArrow))
         {
@@ -37,29 +39,33 @@ public class CubeBehavior : MonoBehaviour
             Hmovement(HorizontalSpeed);
         }
     }
-    void OnCollisionEnter(Collision col)
+
+    private void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "Ground")
         {
             isGrounded = true;
         }
     }
+
     public void jump()
     {
         if (isGrounded == true)
         {
-            rb.AddForce(0f, JumpForce, 0f, ForceMode.Impulse);
+            CubeRigidbody.AddForce(0f, JumpForce, 0f, ForceMode.Impulse);
             isGrounded = false;
         }
     }
 
-    void Hmovement(float x)
+    private void Hmovement(float x)
     {
-        rb.velocity = new Vector3(x, rb.velocity.y, 0f);
+        CubeRigidbody.velocity = new Vector3(x, CubeRigidbody.velocity.y, 0f);
     }
 
-    void OnTriggerExit()
+    private void OnTriggerExit()
     {
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
+        gameObject.SetActive(false);
+        Instantiate(DeathParticle[Random.Range(0, DeathParticle.Length)], transform.position, transform.rotation);
     }
 }
