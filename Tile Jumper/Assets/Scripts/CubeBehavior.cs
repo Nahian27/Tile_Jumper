@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CubeBehavior : MonoBehaviour
 {
@@ -68,4 +67,6 @@ public class CubeBehavior : MonoBehaviour
         gameObject.SetActive(false);
         Instantiate(DeathParticle[Random.Range(0, DeathParticle.Length)], transform.position, transform.rotation);
     }
+
+
 }

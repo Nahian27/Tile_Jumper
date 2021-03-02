@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BlocksManager : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class BlocksManager : MonoBehaviour
         if (CubeTransform.position.y > ySpawn - BlockPrefabLenth)
         {
             SpawnBlocks(Random.Range(0, BlockPrefabs.Length));
+        }
+
+        if (Input.GetKeyUp(KeyCode.R) || Input.touchCount > 2)
+        {
+            SceneManager.LoadScene(0);
         }
     }
 
