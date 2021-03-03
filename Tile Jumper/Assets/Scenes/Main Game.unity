@@ -1174,7 +1174,7 @@ MonoBehaviour:
   BackgroundMusic: {fileID: 581386745}
   CollideSFX: {fileID: 479627211}
   ExplosionSFX: {fileID: 906113832}
-  Froce60fps: 1
+  Froce60fps: 0
   JumpForce: 10
   HorizontalSpeed: 5
   CubeColForce: 0
