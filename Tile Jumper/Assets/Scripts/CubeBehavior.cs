@@ -1,15 +1,17 @@
 using UnityEngine;
+using FMODUnity;
 
 public class CubeBehavior : MonoBehaviour
 {
     public Joystick joystick;
     public GameObject[] DeathParticle;
+    public StudioEventEmitter BackgroundMusic, CollideSFX, ExplosionSFX;
     public bool Froce60fps;
-    public float JumpForce, HorizontalSpeed;
+    public float JumpForce, HorizontalSpeed, CubeColForce;
     private Rigidbody CubeRigidbody;
     private bool isGrounded = true;
 
-    private void Start()
+    void Start()
     {
         CubeRigidbody = GetComponent<Rigidbody>();
 
@@ -17,17 +19,21 @@ public class CubeBehavior : MonoBehaviour
         {
             Application.targetFrameRate = 60;
         }
+
+        BackgroundMusic.Play();
     }
 
-    private void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jump();
         }
+
+        CollideSFX.SetParameter("Impact", CubeColForce);
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         if (joystick.Horizontal <= -0.2 || Input.GetKey(KeyCode.LeftArrow))
         {
@@ -44,6 +50,8 @@ public class CubeBehavior : MonoBehaviour
         if (col.gameObject.tag == "Ground")
         {
             isGrounded = true;
+            CubeColForce = col.impulse.magnitude;
+            CollideSFX.Play();
         }
     }
 
@@ -63,9 +71,9 @@ public class CubeBehavior : MonoBehaviour
 
     private void OnTriggerExit()
     {
-        //SceneManager.LoadScene(0);
         gameObject.SetActive(false);
         Instantiate(DeathParticle[Random.Range(0, DeathParticle.Length)], transform.position, transform.rotation);
+        ExplosionSFX.Play();
     }
 
 
