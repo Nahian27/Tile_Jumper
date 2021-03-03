@@ -272,7 +272,7 @@ MonoBehaviour:
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
-  Preload: 0
+  Preload: 1
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
@@ -587,7 +587,7 @@ MonoBehaviour:
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
-  Preload: 0
+  Preload: 1
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1

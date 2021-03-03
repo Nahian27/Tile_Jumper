@@ -55,7 +55,7 @@ MonoBehaviour:
   Path: ../../../FMOD Studio/Tile Jumper/Build/Mobile/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637503678853855671
+  lastModified: 637503707341909412
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -119,6 +119,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-5042442852841352153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Collide/Impact
+  m_EditorClassIdentifier: 
+  Name: Impact
+  Min: 0
+  Max: 20
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-4935028132643957454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +174,7 @@ MonoBehaviour:
   Path: ../../../FMOD Studio/Tile Jumper/Build/Mobile/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637503678853900970
+  lastModified: 637503707341959839
   LoadResult: 0
   FileSizes:
   - Name: Mobile
@@ -264,8 +284,28 @@ MonoBehaviour:
   - {fileID: -7222771550123078130}
   StringsBanks:
   - {fileID: -4498462183428818441}
-  stringsBankWriteTime: 637503678853900970
+  stringsBankWriteTime: 637503707341959839
   cacheVersion: 6
+--- !u!114 &277658984698660071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Collide/Impact
+  m_EditorClassIdentifier: 
+  Name: Impact
+  Min: 0
+  Max: 20
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &884203655374908295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +326,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: -7031989393049130713}
+  - {fileID: 277658984698660071}
   MinDistance: 1
   MaxDistance: 20
   Length: 200
