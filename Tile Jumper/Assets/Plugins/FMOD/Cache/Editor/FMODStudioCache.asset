@@ -95,11 +95,31 @@ MonoBehaviour:
   Path: ../../../FMOD Studio/Tile Jumper/Build/Mobile/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637506771344212078
+  lastModified: 637506886086948072
   LoadResult: 0
   FileSizes: []
   Exists: 1
 --- !u!114 &-7031989393049130713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Collide/Impact
+  m_EditorClassIdentifier: 
+  Name: Impact
+  Min: 0
+  Max: 20
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &-6947515737479596044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,7 +374,7 @@ MonoBehaviour:
   Path: ../../../FMOD Studio/Tile Jumper/Build/Mobile/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637506771344261638
+  lastModified: 637506886086997945
   LoadResult: 0
   FileSizes:
   - Name: Mobile
@@ -540,6 +560,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &-432146513506604868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Collide/Impact
+  m_EditorClassIdentifier: 
+  Name: Impact
+  Min: 0
+  Max: 20
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-19307553430823037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,8 +624,28 @@ MonoBehaviour:
   - {fileID: -7222771550123078130}
   StringsBanks:
   - {fileID: -4498462183428818441}
-  stringsBankWriteTime: 637506771344261638
+  stringsBankWriteTime: 637506886086997945
   cacheVersion: 6
+--- !u!114 &184387639521458796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Collide/Impact
+  m_EditorClassIdentifier: 
+  Name: Impact
+  Min: 0
+  Max: 20
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &277658984698660071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,12 +683,12 @@ MonoBehaviour:
   Banks:
   - {fileID: -7222771550123078130}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -5232910459779797664}
-  MinDistance: 1
-  MaxDistance: 20
+  - {fileID: 8414784067476796708}
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2000
 --- !u!114 &1598416022065590473
 MonoBehaviour:
@@ -651,6 +711,26 @@ MonoBehaviour:
     data2: 0
   Exists: 0
 --- !u!114 &2114302865898457557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Collide/Impact
+  m_EditorClassIdentifier: 
+  Name: Impact
+  Min: 0
+  Max: 20
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
+--- !u!114 &2548589168319922392
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -792,6 +872,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &4522230539822006928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Collide/Impact
+  m_EditorClassIdentifier: 
+  Name: Impact
+  Min: 0
+  Max: 20
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &4829964988064877942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,6 +975,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &5762481868393966656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Collide/Impact
+  m_EditorClassIdentifier: 
+  Name: Impact
+  Min: 0
+  Max: 20
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &5996191234670608436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,16 +1048,36 @@ MonoBehaviour:
   m_Name: event:/Death Explosion
   m_EditorClassIdentifier: 
   Path: event:/Death Explosion
-  guid: 6a523ed4ae59af4cbb2ae42b346d061d
+  guid: c11d73be22a87748ac26bba1e3016af8
   Banks:
   - {fileID: -7222771550123078130}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 6228
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4200
+--- !u!114 &7701953652238532887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Collide/Impact
+  m_EditorClassIdentifier: 
+  Name: Impact
+  Min: 0
+  Max: 20
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &7982174716777508684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -959,6 +1099,26 @@ MonoBehaviour:
     data2: 0
   Exists: 1
 --- !u!114 &8200538294935852971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Collide/Impact
+  m_EditorClassIdentifier: 
+  Name: Impact
+  Min: 0
+  Max: 20
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &8414784067476796708
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

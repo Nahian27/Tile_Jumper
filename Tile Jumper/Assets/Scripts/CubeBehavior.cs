@@ -5,10 +5,10 @@ public class CubeBehavior : MonoBehaviour
 {
     public Joystick joystick;
     public GameObject[] DeathParticle;
-    public StudioEventEmitter BackgroundMusic, CollideSFX, ExplosionSFX;
+    private Rigidbody CubeRigidbody;
+    public StudioEventEmitter BackgroundMusic, ExplosionSFX, CollideSFX;
     public bool Froce60fps;
     public float JumpForce, HorizontalSpeed, CubeColForce;
-    private Rigidbody CubeRigidbody;
     private bool isGrounded = true;
 
     void Awake()
@@ -22,8 +22,6 @@ public class CubeBehavior : MonoBehaviour
         {
             Application.targetFrameRate = 60;
         }
-
-        BackgroundMusic.Play();
     }
 
     void Update()
@@ -54,8 +52,8 @@ public class CubeBehavior : MonoBehaviour
         {
             isGrounded = true;
             CubeColForce = col.impulse.magnitude;
-            CollideSFX.Play();
         }
+        if (CollideSFX.isActiveAndEnabled) CollideSFX.Play();
     }
 
     public void jump()
@@ -77,9 +75,7 @@ public class CubeBehavior : MonoBehaviour
         gameObject.SetActive(false);
         Instantiate(DeathParticle[Random.Range(0, DeathParticle.Length)], transform.position, transform.rotation);
 
-        ExplosionSFX.Play();
         BackgroundMusic.Stop();
+        if (ExplosionSFX.isActiveAndEnabled) ExplosionSFX.Play();
     }
-
-
 }
