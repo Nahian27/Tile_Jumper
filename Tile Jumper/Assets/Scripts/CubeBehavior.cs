@@ -11,9 +11,12 @@ public class CubeBehavior : MonoBehaviour
     private Rigidbody CubeRigidbody;
     private bool isGrounded = true;
 
-    void Start()
+    void Awake()
     {
         CubeRigidbody = GetComponent<Rigidbody>();
+    }
+    void Start()
+    {
 
         if (Froce60fps == true)
         {
@@ -73,7 +76,9 @@ public class CubeBehavior : MonoBehaviour
     {
         gameObject.SetActive(false);
         Instantiate(DeathParticle[Random.Range(0, DeathParticle.Length)], transform.position, transform.rotation);
+
         ExplosionSFX.Play();
+        BackgroundMusic.Stop();
     }
 
 
