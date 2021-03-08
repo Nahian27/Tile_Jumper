@@ -4,7 +4,7 @@ using FMODUnity;
 public class CubeBehavior : MonoBehaviour
 {
     public Joystick joystick;
-    public GameObject[] DeathParticle;
+    public GameObject DeathParticle;
     private Rigidbody CubeRigidbody;
     public StudioEventEmitter BackgroundMusic, ExplosionSFX, CollideSFX;
     public bool Froce60fps;
@@ -72,10 +72,21 @@ public class CubeBehavior : MonoBehaviour
 
     private void OnTriggerExit()
     {
-        gameObject.SetActive(false);
-        Instantiate(DeathParticle[Random.Range(0, DeathParticle.Length)], transform.position, transform.rotation);
+        if (gameObject.GetComponentInChildren<Light>().enabled)
+        {
+            BackgroundMusic.Stop();
+            gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+            gameObject.GetComponentInChildren<Light>().enabled = false;
+        }
+        else if (!gameObject.GetComponentInChildren<Light>().enabled)
+        {
+            BackgroundMusic.Play();
+            gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+            gameObject.GetComponentInChildren<Light>().enabled = true;
+        }
 
-        BackgroundMusic.Stop();
+        Instantiate(DeathParticle, transform.position, transform.rotation);
+
         if (ExplosionSFX.isActiveAndEnabled) ExplosionSFX.Play();
     }
 }
