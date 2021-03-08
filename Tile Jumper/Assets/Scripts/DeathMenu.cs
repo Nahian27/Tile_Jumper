@@ -1,9 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using Chronos;
 
-public class PauseMenu : MonoBehaviour
+public class DeathMenu : MonoBehaviour
 {
     public Transform panel;
     public CanvasGroup background;
@@ -25,15 +25,16 @@ public class PauseMenu : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Resume()
+    public void Restart()
     {
         background.LeanAlpha(0, Delay);
-        panel.LeanMoveLocalY(-Screen.height * 2, Delay).setEase(Curve).setOnComplete(OnResume);
+        panel.LeanMoveLocalY(-Screen.height * 2, Delay).setEase(Curve).setOnComplete(OnRestart);
     }
-    private void OnResume()
+    private void OnRestart()
     {
-        clock.localTimeScale = 1;
-        gameObject.SetActive(false);
+        // clock.localTimeScale = 1;
+        // gameObject.SetActive(false);
+        SceneManager.LoadScene(0);
     }
 
     public void Rewind()

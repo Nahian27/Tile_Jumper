@@ -4,7 +4,7 @@ using FMODUnity;
 public class CubeBehavior : MonoBehaviour
 {
     public Joystick joystick;
-    public GameObject DeathParticle;
+    public GameObject DeathParticle, DeathMenu;
     private Rigidbody CubeRigidbody;
     public StudioEventEmitter BackgroundMusic, ExplosionSFX, CollideSFX;
     public bool Froce60fps;
@@ -53,6 +53,10 @@ public class CubeBehavior : MonoBehaviour
             isGrounded = true;
             CubeColForce = col.impulse.magnitude;
         }
+        if (col.gameObject.tag == "Enemy")
+        {
+            OnDeath();
+        }
         if (CollideSFX.isActiveAndEnabled) CollideSFX.Play();
     }
 
@@ -72,6 +76,11 @@ public class CubeBehavior : MonoBehaviour
 
     private void OnTriggerExit()
     {
+        OnDeath();
+    }
+
+    private void OnDeath()
+    {
         if (gameObject.GetComponentInChildren<Light>().enabled)
         {
             BackgroundMusic.Stop();
@@ -86,6 +95,8 @@ public class CubeBehavior : MonoBehaviour
         }
 
         Instantiate(DeathParticle, transform.position, transform.rotation);
+
+        DeathMenu.SetActive(true);
 
         if (ExplosionSFX.isActiveAndEnabled) ExplosionSFX.Play();
     }
